@@ -12,6 +12,9 @@ while True:
     if not data:
         break
     print(data)
-    conn.send('Nice to meet you!'.encode())
+    if data == ('Hello, my name is Sergey'.encode()):
+        conn.send('Nice to meet you!'.encode())
+    else:
+        conn.send('Go away'.encode())
 
 conn.close()
