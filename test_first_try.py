@@ -3,6 +3,7 @@ import pytest
 import socket as s
 
 @pytest.fixture
+
 def socket(request):
     _socket = s.socket(s.AF_INET, s.SOCK_STREAM)
     def socket_teardown():
