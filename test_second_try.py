@@ -14,6 +14,6 @@ def test_server_data_check(socket):
     sock = s.socket()
     sock.connect(('localhost', 9090))
     sock.send('Hello, my name is Sergey'.encode())
-    data = sock.recv(1024)
+    data = sock.recv(4096)
     assert data == ('Nice to meet you!'.encode())
     sock.close()
