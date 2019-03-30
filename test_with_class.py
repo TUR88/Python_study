@@ -21,5 +21,5 @@ class Fte:
         assert self.sock
 
 
-f = Fte(socket())
+f = Fte(socket)
 f.test_server_connect()
