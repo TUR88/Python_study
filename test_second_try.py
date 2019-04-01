@@ -15,7 +15,8 @@ class TestClass:
         return _socket
 
     def test_server_connect(socket):  # проверяем наличие связи
-        socket.connect(('localhost', 9090))
+        sock = s.socket()
+        sock.connect(('localhost', 9090))
         assert socket
 
     def test_server_data_check_true(self):
@@ -32,4 +33,4 @@ class TestClass:
         sock.send('Hello, I have NO name'.encode())
         data = sock.recv(1024)
         assert data == ('Go away'.encode())
-        sock.close()
+        sock.close
