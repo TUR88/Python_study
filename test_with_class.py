@@ -13,13 +13,17 @@ def socket(request):
 
 
 class Fte:
-    def __init__(self, sock):
-        self.sock = sock
+    def __init__(self, message):
+        self.message = message
 
-    def test_server_connect(self):
-        self.sock.connect('localhost', 9090)
-        assert self.sock
+    def test_server_data_check(self):
+        sock = s.socket()
+        sock.connect(('localhost', 9090))
+        sock.send('Hello, my name is Sergey'.encode())
+        data = sock.recv(4096)
+        assert data == self.message
+        sock.close()
 
 
-f = Fte(socket)
-f.test_server_connect()
+f = Fte('Nice to meet you!')
+f.test_server_data_check()
