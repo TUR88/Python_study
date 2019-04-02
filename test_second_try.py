@@ -16,12 +16,12 @@ class TestClass:
 
     def test_server_connect(socket):  # проверяем наличие связи
         sock = s.socket()
-        sock.connect('localhost', 9090)
+        sock.connect(('localhost', 9090))
         assert socket
 
     def test_server_data_check_true(self):
         sock = s.socket()
-        sock.connect('localhost', 9090)
+        sock.connect(('localhost', 9090))
         sock.send('Hello, my name is Sergey'.encode())
         data = sock.recv(1024)
         assert data == ('Nice to meet you!'.encode())
@@ -29,7 +29,7 @@ class TestClass:
 
     def test_server_data_check_false(self):
         sock = s.socket()
-        sock.connect('localhost', 9090)
+        sock.connect(('localhost', 9090))
         sock.send('Hello, I have NO name'.encode())
         data = sock.recv(1024)
         assert data == ('Go away'.encode())
