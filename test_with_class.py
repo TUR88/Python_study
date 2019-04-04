@@ -1,6 +1,9 @@
 import pytest
 import socket as s
 
+sock = s.socket()
+sock.connect(('localhost', 9090))
+
 
 class TestClass1:
 
@@ -15,15 +18,11 @@ class TestClass1:
         return _socket
 
     def test_server_connect(socket):  # проверяем наличие связи
-        sock = s.socket()
-        sock.connect(('localhost', 9090))
         assert socket
 
 
 class TestClass2:
     def test_server_data_check_true(self):
-        sock = s.socket()
-        sock.connect(('localhost', 9090))
         sock.send('Hello, my name is Sergey'.encode())
         data = sock.recv(1024)
         assert data == ('Nice to meet you!'.encode())
@@ -32,8 +31,6 @@ class TestClass2:
 
 class TestClass3:
     def test_server_data_check_false(self):
-        sock = s.socket()
-        sock.connect(('localhost', 9090))
         sock.send('Nice to meet you!'.encode())
         data = sock.recv(1024)
         assert data == ('Go away'.encode())
