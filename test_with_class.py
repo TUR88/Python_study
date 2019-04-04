@@ -17,7 +17,7 @@ class TestClass1:
         request.addfinalizer(socket_teardown)
         return _socket
 
-    def test_server_connect(socket):  # проверяем наличие связи
+    def test_server_connect(socket):
         assert socket
 
 
