@@ -6,7 +6,6 @@ sock.connect(('localhost', 9090))
 
 
 class TestClass1:
-
     @pytest.fixture
     def socket(request):
         _socket = s.socket(s.AF_INET, s.SOCK_STREAM)
