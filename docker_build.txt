@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y
    libssl-dev 
    zlib1g-dev 
    make
+   python
 
 RUN curl http://tengine.taobao.org/download/tengine-2.3.0.tar.gz > /opt/tengine$
 
