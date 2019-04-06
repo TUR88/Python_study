@@ -1,9 +1,10 @@
 import socket  # импортируем библиотеку
 
+sock = socket.socket()  # cоздаем переменную sock
+sock.bind(('', 9090))  # задаем номер порта и хост
 
 while True:
-    sock = socket.socket()  # cоздаем переменную sock
-    sock.bind(('', 9090))  # задаем номер порта и хост
+
     sock.listen(10)
     conn, addr = sock.accept()  # соединяемся, присваиваимваем ip-адрес
     print('connected:', addr)
